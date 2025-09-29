@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>記号グリッドアプリ</title>
+    <style>
+        body { font-family: sans-serif; }
+        .grid { display: grid; grid-template-columns: repeat(5, 50px); gap: 10px; margin-bottom: 20px; }
+        .grid-item { width: 50px; height: 50px; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; }
+        .highlight { background-color: yellow; }
+        .symbol-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .symbol-item { padding: 5px; border: 1px solid #ddd; cursor: pointer; }
+        .selected { background-color: lightblue; }
+    </style>
+</head>
+<body>
+    <h1>記号グリッドアプリ</h1>
+    <div id="grid" class="grid"></div>
+    <h2>記号一覧</h2>
+    <div id="symbol-list" class="symbol-list"></div>
+
+    <script>
+        // サンプルの記号リスト（特殊記号を含む）
+        const symbols = ['♠', '♥', '♦', '♣', '★', '☆', '●', '○', '△', '□', '◇', '◆', '♫', '♪', '✔', '✘'];
+
+        // グリッドにランダムに記号を配置（例: 5x5グリッド）
+        const gridSize = 25; // 5x5
+        const gridSymbols = [];
+        for (let i = 0; i < gridSize; i++) {
+            gridSymbols.push(symbols[Math.floor(Math.random() * symbols.length)]);
+        }
+
+        // グリッドを表示
+        const grid = document.getElementById('grid');
+        gridSymbols.forEach(symbol => {
+            const item = document.createElement('div');
+            item.classList.add('grid-item');
+            item.textContent = symbol;
+            grid.appendChild(item);
+        });
+
+        // 記号一覧を表示
+        const symbolList = document.getElementById('symbol-list');
+        const selectedSymbols = new Set(); // 選択された記号を管理
+        symbols.forEach(symbol => {
+            const item = document.createElement('div');
+            item.classList.add('symbol-item');
+            item.textContent = symbol;
+            item.addEventListener('click', () => {
+                if (selectedSymbols.has(symbol)) {
+                    selectedSymbols.delete(symbol);
+                    item.classList.remove('selected');
+                } else {
+                    selectedSymbols.add(symbol);
+                    item.classList.add('selected');
+                }
+                updateHighlights();
+            });
+            symbolList.appendChild(item);
+        });
+
+        // ハイライト更新関数
+        function updateHighlights() {
+            const gridItems = document.querySelectorAll('.grid-item');
+            gridItems.forEach(item => {
+                if (selectedSymbols.has(item.textContent)) {
+                    item.classList.add('highlight');
+                } else {
+                    item.classList.remove('highlight');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

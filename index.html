@@ -21,14 +21,14 @@
 
     <script>
         // サンプルの記号リスト（特殊記号を含む）
-        const symbols = ['⬓', '⬒', '↓', '↑', '∵', '☆', '●', '○', '△', '□', '◇', '◆', '♫', '♪', '✔', '✘'];
+        const symbols = ['◒','◓','W','M','q','b','⬓', '⬒', '↓', '↑', 'a', '☆', '●', '○', '△', '□', '◇', '◆', '♫', '♪', '✔', '✘'];
 
         // グリッドにランダムに記号を配置（10x16グリッド）
         const gridSize = 160; // 10x16
-        const gridSymbols = [];
-        for (let i = 0; i < gridSize; i++) {
+        const gridSymbols = [symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0],symbols[0]];
+        /*for (let i = 0; i < gridSize; i++) {
             gridSymbols.push(symbols[Math.floor(Math.random() * symbols.length)]);
-        }
+        }*/
 
         // グリッドを表示
         const grid = document.getElementById('grid');
